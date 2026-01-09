@@ -1,6 +1,4 @@
 typedef struct {
-    int start;
-    int end;
     int res;
     int termin[1000][2];
 
