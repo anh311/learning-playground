@@ -1,0 +1,25 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* selfDividingNumbers(int left, int right, int* returnSize) {
+    int* arr = calloc((right - left+1),sizeof(int));
+    int count=0;
+    for (int i=left;i<=right;i++){
+        int k =i;
+        bool richtig=true;
+        while (k>0){
+            int zahl =k%10;
+            if(zahl ==0 ||i % zahl!=0){
+                richtig =false;
+                break;
+            }
+            k=k/10;
+        }
+        if (richtig){
+            arr[count]=i;
+            count++;
+        }
+    } 
+    *returnSize= count;
+    return arr;
+}
